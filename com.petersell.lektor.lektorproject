@@ -1,0 +1,5 @@
+[project]
+name = com.petersell.lektor
+
+[packages]
+lektor-asciidoc = 0.3
