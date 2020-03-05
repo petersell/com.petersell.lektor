@@ -1,4 +1,4 @@
-title: Sample Blog Post
+title: Sample Blog Post with Asciidoc
 ---
 pub_date: 2018-09-15
 ---
@@ -6,25 +6,25 @@ author: Andrew Shay
 ---
 body:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac magna ac ligula scelerisque aliquet id sed
-sem. Mauris
-egestas erat leo, sit amet congue nisl aliquet in. Aliquam bibendum libero eget lectus tincidunt interdum.
-Etiam eget
-nisl at ante consequat fermentum. Curabitur a augue non dolor dictum faucibus. Quisque id pretium eros.
-Phasellus a
-nulla id massa lobortis aliquet. Nulla at vestibulum mi. Etiam dignissim ultrices sem et fringilla.
-Vestibulum justo
-nunc, placerat sit amet varius vitae, aliquet sed augue. Fusce fringilla sapien id lacus convallis lacinia.
-Fusce in
-dictum velit.
+== Lektor is static
+
+[IMPORTANT] 
+==== 
+Ich habe die Arbeit mit Lektor beendet, da unter Python 3 kein Editieren mit Asciidoc möglich ist (März 2020).
+====
+
+https://www.getlektor.com/docs/what/[Lektor] learned from the huge range of static file generators like Jekyll, Pelican, Hugo, Middleman and many more about the value of generating a completely static website. This means that unlike WordPress or similar solutions it does not run on a server, but your local computer (or a build server), and generates static HTML. Lektor ist also eine Mischung aus CMS und Static File Generator.
+
+=== Installation
+
+Lektor ist sicher eine feine Sache, doch werden viele Blogger und Redakteure an der Installation scheitern. Die Installationsanleitung ist leider etwas flappsig geschrieben. Ich mache mir lieber ein paar Notizen für meine nächste Installation.
+
+. Installation von Phyton 3.8. Download des 64bit-executable-Installers unter https://www.python.org/downloads/windows/.
+. Eintragen der Umgebungsvariablen für Python. Bei mir war es z.B. die Path-Variable `C:\Users\Andreas\AppData\Local\Programs\Python\Python38`.
+. Installation von ImageMagick von https://imagemagick.org/script/download.php. Im Abschnitt _Windows Binary Release_ den Download aus der ersten Tabellenzeilen wählen und downloaden.
+. Die Installationroutine durchführen. Es muss am Ende eine Path-Variable für ImageMagick neu erscheinen, wie z.B. `C:\Program Files\ImageMagick-7.0.9-Q19`
+. Die Windows-Powershell aufrufen und diesen Befehl wie angegeben absetzen:
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac magna ac ligula scelerisque aliquet id sed
  sem. Mauris
 egestas erat leo, sit amet congue nisl aliquet in. Aliquam bibendum libero eget lectus tincidunt interdum.
-
-## Notes
-
-* [Data](#)
-* [Data](#)
-* [Data](#)
-* [Data](#)

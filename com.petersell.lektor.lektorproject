@@ -2,4 +2,4 @@
 name = com.petersell.lektor
 
 [packages]
-lektor-asciidoc = 0.3
+lektor-asciidoctor = 0.1
