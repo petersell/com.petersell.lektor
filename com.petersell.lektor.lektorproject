@@ -1,5 +1,6 @@
 [project]
-name = com.petersell.lektor
+name = Andreas Petersell
+locale = de_DE
 
 [packages]
 lektor-asciidoctor = 0.1

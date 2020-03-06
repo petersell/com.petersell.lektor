@@ -1,17 +1,12 @@
-title: Sample Blog Post with Asciidoc
+title: Lektor CMS
 ---
-pub_date: 2018-09-15
+pub_date: 04.08.2020
 ---
-author: Andrew Shay
+author: Andreas Petersell
 ---
 body:
 
 == Lektor is static
-
-[IMPORTANT] 
-==== 
-Ich habe die Arbeit mit Lektor beendet, da unter Python 3 kein Editieren mit Asciidoc möglich ist (März 2020).
-====
 
 https://www.getlektor.com/docs/what/[Lektor] learned from the huge range of static file generators like Jekyll, Pelican, Hugo, Middleman and many more about the value of generating a completely static website. This means that unlike WordPress or similar solutions it does not run on a server, but your local computer (or a build server), and generates static HTML. Lektor ist also eine Mischung aus CMS und Static File Generator.
 
