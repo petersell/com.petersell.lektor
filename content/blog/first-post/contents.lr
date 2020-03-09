@@ -1,16 +1,14 @@
 title: Lektor CMS
 ---
-pub_date: 04.08.2020
----
 author: Andreas Petersell
+---
+pub_date: 2020-03-09
 ---
 body:
 
-== Lektor is static
-
 https://www.getlektor.com/docs/what/[Lektor] learned from the huge range of static file generators like Jekyll, Pelican, Hugo, Middleman and many more about the value of generating a completely static website. This means that unlike WordPress or similar solutions it does not run on a server, but your local computer (or a build server), and generates static HTML. Lektor ist also eine Mischung aus CMS und Static File Generator.
 
-=== Installation
+== Installation
 
 Lektor ist sicher eine feine Sache, doch werden viele Blogger und Redakteure an der Installation scheitern. Die Installationsanleitung ist leider etwas flappsig geschrieben. Ich mache mir lieber ein paar Notizen für meine nächste Installation.
 
@@ -23,3 +21,11 @@ Lektor ist sicher eine feine Sache, doch werden viele Blogger und Redakteure an 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac magna ac ligula scelerisque aliquet id sed
  sem. Mauris
 egestas erat leo, sit amet congue nisl aliquet in. Aliquam bibendum libero eget lectus tincidunt interdum.
+
+---
+description: Blog built with Lektor
+---
+tags:
+
+blog
+lektor
