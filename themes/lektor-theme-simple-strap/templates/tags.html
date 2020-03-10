@@ -3,8 +3,14 @@
 {% block body %}
 <!-- BLOG POST -->
 <div class="blog-post">
-  <h1 class="blog-post-title">{{ this.title }}</h1>
-  {{ this.body }}
+  <h1 class="blog-post-title">Tag: {{ this.tag }}</h1>
+  <ul>
+    {% for i in this.items %}
+      <li><a href="{{ i|url }}">{{ i._id }}</a></li>
+    {% else %}
+      <li><em>Keine Einträge vorhanden.</em></li>
+    {% endfor %}
+  </ul>
 </div>
 <!-- END BLOG POST -->
 
