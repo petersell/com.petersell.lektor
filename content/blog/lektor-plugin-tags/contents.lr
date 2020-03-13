@@ -1,0 +1,18 @@
+title: Lektor - Plugins installieren
+---
+author: Andreas Petersell
+---
+pub_date: 2020-10-03
+---
+body:
+
+:toc:
+:icons: font
+
+include::lektor-plugin-tags.adoc[]
+
+---
+description: Lektor - das Tags-Plugin installieren
+---
+tags:
+lektor

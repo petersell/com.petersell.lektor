@@ -1,0 +1,136 @@
+Wichtige Grundfunktionen wie das Arbeiten mit Stichworten (Tags) oder das Setzen eines "Lesen Sie hier weiter"-Links können nur über die Installation eines Plugins eingebunden werden.
+
+== Lektor Tags Plugin
+
+Dieses Plugin ist sehr gut auf der https://www.getlektor.com/plugins/lektor-tags/[Webseite zum Plugin] dokumentiert. Leider war die Doku für mich nur verwirrend. Sie konnte mir als Anfänger nur als roter Faden dienen, als eine Art Checkliste dienen. Gottseidank veröffentlichen einige Vorreiter ihren Lektor-Code auf github.com, so dass ich die Details mit STRG+C und V meistern konnte.
+
+* https://github.com/ericmjl/website
+* https://github.com/Andrew-Shay/andrew_shay_me_website
+* https://github.com/singingwolfboy/davidbaumgold.com
+
+Ich benutze das _Tags Plugin_ in Version 0.3. Folgende Dateien habe ich angelegt bzw. editiert.
+
+=== Datei _.lektorprojekt_
+
+[source]
+----
+[project]
+name = Andreas Petersell
+url = https://www.petersell.com
+url_style = absolute
+
+[packages]
+lektor-asciidoctor = 0.1
+lektor-tags = 0.3
+----
+
+=== Datei _blog-post.html_
+
+Jetzt wie in der Dokumentation angegeben, das jeweilige Template anpassen. Ich beschränke mich auf das Template für den Blogpost `blog-post.html`.
+
+[source]
+----
+{% extends "layout.html" %}
+{% from "macros/blog.html" import render_blog_post %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+  {{ render_blog_post(this) }}
+  {% if this.tags %}
+  <ul>
+    {% for t in this.tags -%}
+      <li>
+        <a class="tags" href="{{ ('/blog/tag/' ~ t.lower() ~ '/')|url }}">
+          Blogposts mit dem Stichwort {{ t }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}
+----
+
+=== Datei _tag.html_
+
+Klickt man auf ein Stichwort, soll sich eine Seite öffnen, die sämtliche Blogposts mit diesem Stichwort auflistet. Ich habe im Verzeichnis _templates_ eine Datei _tag.html_ erstellt.
+
+[source]
+----
+{% extends "layout.html" %}
+{% block title %}Tag: {{ this.tag }}{% endblock %}
+{% block body %}
+<h1>Blogposts mit dem Stichwort {{ this.tag }}</h1>
+<ul>
+  {% for i in this.items %}
+    <li><a href="{{ i|url }}">{{ i.pub_date }}: {{ i.title }}</a></li>
+  {% else %}
+    <li><em>Keine Einträge gefunden.</em></li>
+  {% endfor %}
+</ul>
+{% endblock %}
+----
+
+=== Datei _blog-post.ini_
+
+Dieses Model wurde ergänzt.
+
+[source]
+----
+[fields.tags]
+label = Tags
+type = strings
+----
+
+=== Datei _tags.ini_
+
+Erstellen Sie auf der selben Ebene wie das Verzeichnis _models_ eine neues Verzeichnis _configs_. Darin erstellen Sie die Datei _tags.ini_.
+
+[source]
+----
+parent = /blog
+items = this.parent.children.filter(F.tags.contains(tag))
+tags_field = tags
+template = tag.html
+url_path = {{ this.parent.url_path }}tag/{{ tag }}
+ignore_missing = true
+----
+
+=== Blogartikel
+
+Ab sofort versehe ich meine Blogartikel mit sogenannten Tags. Ein Beispiel für eine Datei _contents.lr_ sieht folgendermaßen aus.
+
+[source]
+----
+title: Einbinden der DITA-DTDs in Eclipse
+---
+author: Andreas Petersell
+---
+pub_date: 2012-11-23
+---
+body:
+
+:icons: font
+
+Eclipse eignet sich gut als Quelldateien-Editor. Damit die DITA-Dateien validiert werden können, gilt es, die DTDs einzubinden.
+
+.Voraussetzung
+[IMPORTANT]
+====
+Sie müssen das Java JDK und Eclipse installiert haben. Ein Java JRE war in meinem Fall nicht ausreichend.
+====
+
+image::dita-nextcatalog.gif[]
+
+. Klicken Sie in Eclipse auf _Window > Preferences_.
+. Öffnen Sie die Menüverzeichnisbaum unterhalb _XML_ und klicken Sie auf _XML Catalog_.
+. Klicken Sie im Fenster _Preferences_ auf _Add_.
+. Klicken Sie auf _Next Catalog_ und anschließend auf _File System_.
+. Springen Sie im Fenster _Öffnen_ auf die Datei catalog-dita.xml im Hauptverzeichnis Ihres aktuellen DITA Open Toolkits.
+
+---
+description: Einbinden der DITA-DTDs in Eclipse
+---
+tags:
+
+dita
+eclipse
+----

@@ -3,18 +3,15 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
   {{ render_blog_post(this) }}
-
-  <br>
   {% if this.tags %}
   <ul>
     {% for t in this.tags -%}
       <li>
-        <a href="{{ ('/blog@tag/' ~t)|url }}">
-          All posts tagged {{ t }}
+        <a class="tags" href="{{ ('/blog/tag/' ~ t.lower() ~ '/')|url }}">
+          Blogposts mit dem Stichwort {{ t }}
         </a>
       </li>
     {% endfor %}
   </ul>
 {% endif %}
-   
 {% endblock %}
