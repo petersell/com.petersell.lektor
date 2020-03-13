@@ -4,4 +4,4 @@ locale = de_DE
 
 [packages]
 lektor-asciidoctor = 0.1
-lektor-tags = 0.1
+lektor-tags = 0.3
